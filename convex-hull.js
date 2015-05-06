@@ -30,3 +30,20 @@ function convexHull(points) {
    lower.pop();
    return lower.concat(upper);
 }
+function convexWithAllPointsAsBreakPoint(points){
+  points.sort(function(a, b) {
+      return  a[0] - b[0];
+   });  
+  var upper = [];
+  var lower = [];
+  upper.push(points[0]);
+  for (var i = 1; i < points.length; i++) {
+      if (points[i][1]>=points[0][1]) {
+         upper.push(points[i]);   
+      }else{
+         lower.push(points[i]);
+      }
+  }
+  lower.reverse();
+  return upper.concat(lower);
+}
