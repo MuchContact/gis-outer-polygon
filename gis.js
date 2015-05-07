@@ -15,7 +15,7 @@ function extractPointsFromVectorLayer(layer){
 	}
 }
 function generateWKTPolygon(){
-	var polygonArr = convexWithAllPointsAsBreakPoint(source);
+	var polygonArr = hull(source, 1);
 	var polygon = "POLYGON((";
 	for (var i = 0; i < polygonArr.length-1; i++) {
 		polygon += polygonArr[i][0] + " " + polygonArr[i][1] + ",";
